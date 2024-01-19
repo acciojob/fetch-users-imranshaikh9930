@@ -42,7 +42,20 @@ const App = () => {
     <h1>People Details</h1>
   
     {users.length === 0 ? (
+    <>
+      <table>
+      <thead>
+        <tr>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Email</th>
+          <th>Avatar</th>
+        </tr>
+      </thead>
+      </table>
       <p>No data found to display.</p>
+    </>
+      
     ) : (
       <table>
         <thead>
