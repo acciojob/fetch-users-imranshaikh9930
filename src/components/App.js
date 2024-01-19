@@ -38,32 +38,33 @@ const App = () => {
  
   return (
     <div className="App">
-      <button className="btn" onClick={fetchUser}>Get User List</button>
+    <button className="btn" onClick={fetchUser}>Get User List</button>
     <h1>People Details</h1>
-    <table>
-      <thead>
-        <tr>
-        
-          <th>FirstName</th>
-          <th>LastName</th>
-          <th>Email</th>
-          <th>Avatar</th>
-         
-        </tr>
-      </thead>
-      <tbody>
-        { users ? users.map((person) => (
-          <tr key={person.id}>
-          
-            <td>{person.first_name}</td>
-            <td>{person.last_name}</td>
-            <td>{person.email}</td>
-            <td> <img src={person.avatar} alt="" /> </td>
-           
+  
+    {users.length === 0 ? (
+      <p>No data found to display.</p>
+    ) : (
+      <table>
+        <thead>
+          <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Avatar</th>
           </tr>
-        )):"No data found to display."} 
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {users.map((person) => (
+            <tr key={person.id}>
+              <td>{person.first_name}</td>
+              <td>{person.last_name}</td>
+              <td>{person.email}</td>
+              <td> <img src={person.avatar} alt="" /> </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )}
   </div>
   )
 }
