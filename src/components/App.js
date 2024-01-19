@@ -19,13 +19,20 @@ const App = () => {
   //     console.error('Error fetching user data:', error);
   //   }
   // }
-
-  function fetchUser(){
+  function fetchUser() {
     fetch("https://reqres.in/api/users")
-    .then(resp=>resp.json())
-    .then(data =>setUsers(data.data))
-    .catch(err=>console.log(err))
+      .then((resp) => resp.json())
+      .then((data) => {
+        if (data.data && data.data.length > 0) {
+          setUsers(data.data);
+        } else {
+          setUsers([]);
+          console.error("No data found to display.");
+        }
+      })
+      .catch((err) => console.error(err));
   }
+  
 
   
  
