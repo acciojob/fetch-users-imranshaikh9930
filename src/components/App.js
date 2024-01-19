@@ -52,7 +52,7 @@ const App = () => {
         </tr>
       </thead>
       <tbody>
-        { users.map((person) => (
+        { users ? users.map((person) => (
           <tr key={person.id}>
           
             <td>{person.first_name}</td>
@@ -61,7 +61,7 @@ const App = () => {
             <td> <img src={person.avatar} alt="" /> </td>
            
           </tr>
-        ))} 
+        )):"No data found to display."} 
       </tbody>
     </table>
   </div>
