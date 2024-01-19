@@ -31,7 +31,7 @@ const App = () => {
  
   return (
     <div className="App">
-      <button onClick={fetchUser}>Get User List</button>
+      <button className="btn" onClick={fetchUser}>Get User List</button>
     <h1>People Details</h1>
     <table>
       <thead>
